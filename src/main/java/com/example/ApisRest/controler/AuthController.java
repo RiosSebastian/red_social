@@ -1,13 +1,15 @@
 package com.example.ApisRest.controler;
 
-import com.example.ApisRest.dto.AuthResponse;
-import com.example.ApisRest.dto.LoginRequest;
-import com.example.ApisRest.dto.RefreshTokenRequest;
+import com.example.ApisRest.dto.*;
 import com.example.ApisRest.entity.RefreshToken;
 import com.example.ApisRest.entity.User;
 import com.example.ApisRest.repository.RefreshTokenRepository;
 import com.example.ApisRest.servis.RefreshTokenService;
+import com.example.ApisRest.servis.UserService;
 import com.example.ApisRest.util.JwtUtil;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -22,15 +24,20 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/auth")
 public class AuthController {
 
+    @Autowired
     private final AuthenticationManager authenticationManager;
+    @Autowired
     private final JwtUtil jwtUtil;
+    @Autowired
+    private final UserService userService;
 
     private  RefreshTokenService refreshTokenService;
     private RefreshTokenRepository refreshTokenRepository;
 
-    public AuthController(AuthenticationManager authenticationManager, JwtUtil jwtUtil) {
+    public AuthController(AuthenticationManager authenticationManager, JwtUtil jwtUtil, UserService userService) {
         this.authenticationManager = authenticationManager;
         this.jwtUtil = jwtUtil;
+        this.userService = userService;
     }
 
     @PostMapping("/login")
@@ -59,8 +66,7 @@ public class AuthController {
     }
 
     @PostMapping("/refresh")
-    public ResponseEntity<AuthResponse> refreshToken(
-            @RequestBody RefreshTokenRequest request) {
+    public ResponseEntity<AuthResponse> refreshToken(@RequestBody RefreshTokenRequest request) {
 
         RefreshToken refreshToken = refreshTokenRepository
                 .findByToken(request.getRefreshToken())
@@ -80,6 +86,11 @@ public class AuthController {
         );
     }
 
+    @PostMapping("/register")
+    public ResponseEntity<UserProfileDto> register(@Valid @RequestBody RegisterRequest request) {
 
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(userService.register(request));
+    }
 }
 

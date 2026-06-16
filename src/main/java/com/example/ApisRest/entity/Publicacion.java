@@ -20,9 +20,7 @@ public class Publicacion {
     private String descripcion;
     @Column(name= "contenido", nullable = false)
     private String contenido;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "publicacion_id", nullable = false)
-    @JsonManagedReference
-    private Publicacion publicacion;
+    @OneToMany(mappedBy="publicacion")
+    private Set<Comentarios> comentarios;
 
 }
