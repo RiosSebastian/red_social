@@ -3,7 +3,7 @@ package com.example.ApisRest.servis.impl;
 import com.example.ApisRest.dto.PublicacionDto;
 import com.example.ApisRest.dto.PublicacionRespuesta;
 import com.example.ApisRest.entity.Publicacion;
-import com.example.ApisRest.excepciones.RecursoNotFoundException;
+import com.example.ApisRest.exception.RecursoNotFoundException;
 import com.example.ApisRest.repository.PublicacionRepository;
 import com.example.ApisRest.servis.PublicacionServis;
 import org.modelmapper.ModelMapper;

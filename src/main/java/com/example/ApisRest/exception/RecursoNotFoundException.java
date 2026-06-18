@@ -1,6 +1,5 @@
-package com.example.ApisRest.excepciones;
+package com.example.ApisRest.exception;
 
-import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
 

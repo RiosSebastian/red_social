@@ -1,6 +1,5 @@
-package com.example.ApisRest.util;
+package com.example.ApisRest.security;
 
-import com.example.ApisRest.servis.MyUserDetailsService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

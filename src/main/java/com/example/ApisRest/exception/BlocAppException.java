@@ -1,4 +1,4 @@
-package com.example.ApisRest.excepciones;
+package com.example.ApisRest.exception;
 
 import lombok.Data;
 import org.springframework.http.HttpStatus;

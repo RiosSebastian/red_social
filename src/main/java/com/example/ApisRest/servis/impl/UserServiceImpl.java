@@ -4,7 +4,7 @@ import com.example.ApisRest.dto.RegisterRequest;
 import com.example.ApisRest.dto.UpdateProfileRequest;
 import com.example.ApisRest.dto.UserProfileDto;
 import com.example.ApisRest.entity.User;
-import com.example.ApisRest.excepciones.RecursoNotFoundException;
+import com.example.ApisRest.exception.RecursoNotFoundException;
 import com.example.ApisRest.repository.UserRepository;
 import com.example.ApisRest.servis.UserService;
 import lombok.RequiredArgsConstructor;

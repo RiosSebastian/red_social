@@ -1,6 +1,6 @@
 package com.example.ApisRest.config;
 
-import com.example.ApisRest.util.JwtAuthenticationFilter;
+import com.example.ApisRest.security.JwtAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;

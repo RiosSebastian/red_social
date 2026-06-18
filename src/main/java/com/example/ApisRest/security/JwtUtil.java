@@ -1,4 +1,4 @@
-package com.example.ApisRest.util;
+package com.example.ApisRest.security;
 
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

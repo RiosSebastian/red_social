@@ -1,11 +1,10 @@
 package com.example.ApisRest.servis.impl;
 
 import com.example.ApisRest.dto.ComentariosDto;
-import com.example.ApisRest.dto.PublicacionDto;
 import com.example.ApisRest.entity.Comentarios;
 import com.example.ApisRest.entity.Publicacion;
-import com.example.ApisRest.excepciones.BlocAppException;
-import com.example.ApisRest.excepciones.RecursoNotFoundException;
+import com.example.ApisRest.exception.BlocAppException;
+import com.example.ApisRest.exception.RecursoNotFoundException;
 import com.example.ApisRest.repository.ComentariosRepository;
 import com.example.ApisRest.repository.PublicacionRepository;
 import com.example.ApisRest.servis.ComentariosServis;

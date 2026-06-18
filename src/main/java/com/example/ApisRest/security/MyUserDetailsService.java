@@ -1,4 +1,4 @@
-package com.example.ApisRest.servis;
+package com.example.ApisRest.security;
 
 import com.example.ApisRest.entity.User;
 import com.example.ApisRest.repository.UserRepository;
