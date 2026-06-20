@@ -4,18 +4,26 @@ import com.example.ApisRest.dto.LikeResponseDto;
 import com.example.ApisRest.entity.Publicacion;
 import com.example.ApisRest.entity.PublicationLike;
 import com.example.ApisRest.entity.User;
+import com.example.ApisRest.repository.PublicacionRepository;
 import com.example.ApisRest.repository.PublicationLikeRepository;
 import com.example.ApisRest.repository.UserRepository;
 import com.example.ApisRest.servis.LikeService;
+import com.example.ApisRest.servis.NotificationService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Service;
 
 import java.security.PrivateKey;
 import java.time.LocalDateTime;
-
+@Service
+@RequiredArgsConstructor
 public class LikeServiceImpl implements LikeService {
 
     private UserRepository userRepository;
     private PublicationLikeRepository likeRepository;
+    private final NotificationService notificationService;
+    private  final PublicacionRepository publicacionRepository;
+
 
     @Override
     public LikeResponseDto likePublication(Long publicationId) {
@@ -53,6 +61,11 @@ public class LikeServiceImpl implements LikeService {
         like.setCreatedAt(LocalDateTime.now());
 
         likeRepository.save(like);
+
+        notificationService.createLikeNotification(
+                user,
+                publicacion
+        );
 
         return getLikes(publicationId);
     }
@@ -125,4 +138,6 @@ public class LikeServiceImpl implements LikeService {
                 )
                 .build();
     }
+
+
 }

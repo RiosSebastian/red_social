@@ -12,9 +12,10 @@ public class Comentarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long   id;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
 
-    private String nombre;
-    private String email;
     private String cuerpo;
 
     @ManyToOne(fetch = FetchType.LAZY)

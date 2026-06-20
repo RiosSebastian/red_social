@@ -2,6 +2,7 @@ package com.example.ApisRest.servis.impl;
 
 import com.example.ApisRest.dto.NotificationDto;
 import com.example.ApisRest.entity.Notification;
+import com.example.ApisRest.entity.Publicacion;
 import com.example.ApisRest.entity.User;
 import com.example.ApisRest.repository.NotificationRepository;
 import com.example.ApisRest.repository.UserRepository;
@@ -31,6 +32,56 @@ public class NotificationServiceImpl implements NotificationService {
                                         + " comenzó a seguirte"
                         )
                         .type("FOLLOW")
+                        .read(false)
+                        .createdAt(LocalDateTime.now())
+                        .build();
+
+        notificationRepository.save(notification);
+    }
+
+    @Override
+    public void createLikeNotification(User sender, Publicacion publicacion) {
+
+        User recipient = publicacion.getUser();
+
+        // Evitar notificar si el usuario se da like a sí mismo
+        if(sender.getId().equals(recipient.getId())){
+            return;
+        }
+
+        Notification notification =
+                Notification.builder()
+                        .recipient(recipient)
+                        .message(
+                                sender.getUsername()
+                                        + " le gustó tu publicación"
+                        )
+                        .type("LIKE")
+                        .read(false)
+                        .createdAt(LocalDateTime.now())
+                        .build();
+
+        notificationRepository.save(notification);
+    }
+
+    @Override
+    public void createCommentNotification(User sender, Publicacion publicacion) {
+
+        User recipient = publicacion.getUser();
+
+        if(sender.getId().equals(recipient.getId())){
+            return;
+        }
+
+        Notification notification =
+                Notification.builder()
+                        .recipient(recipient)
+                        .sender(sender)
+                        .message(
+                                sender.getUsername()
+                                        + " comentó tu publicación"
+                        )
+                        .type("COMMENT")
                         .read(false)
                         .createdAt(LocalDateTime.now())
                         .build();

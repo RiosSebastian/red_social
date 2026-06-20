@@ -17,6 +17,7 @@ public class ComentariosController {
     private ComentariosServis comentariosServis;
 
 
+
     @GetMapping("/publicaciones/{publicacionId}/comentarios")
     public List<ComentariosDto>ListarComentariosPorPublicacion(@PathVariable (value = "publicacionId")Long publicacionId){
         return comentariosServis.obtenerComentariosPorPublicacion(publicacionId);

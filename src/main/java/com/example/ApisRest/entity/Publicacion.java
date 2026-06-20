@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -14,13 +15,24 @@ public class Publicacion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long  id;
+
     @Column(name= "titulo", nullable = false)
     private String titulo;
+
     @Column(name= "descripcion", nullable = false)
     private String descripcion;
+
     @Column(name= "contenido", nullable = false)
     private String contenido;
+
     @OneToMany(mappedBy="publicacion")
     private Set<Comentarios> comentarios;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @OneToMany(mappedBy = "publicacion", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Media> medias;
 
 }

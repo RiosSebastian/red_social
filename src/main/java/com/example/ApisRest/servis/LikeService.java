@@ -4,6 +4,8 @@ import com.example.ApisRest.dto.LikeResponseDto;
 
 public interface LikeService {
 
+
+
     LikeResponseDto likePublication(
             Long publicationId
     );
@@ -15,4 +17,6 @@ public interface LikeService {
     LikeResponseDto getLikes(
             Long publicationId
     );
+
+
 }
