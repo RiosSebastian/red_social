@@ -1,0 +1,302 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #18191a;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.profile-container {
+  width: 100%;
+  background: #242526;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* PORTADA */
+
+.cover {
+  position: relative;
+  height: 420px;
+}
+
+.cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cover-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  background: #3a3b3c;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.cover-btn i {
+  color: white;
+  font-size: 20px;
+}
+
+/* BURBUJA */
+
+.note-bubble {
+  position: absolute;
+  left: 30px;
+  top: 30px;
+  background: #3a3b3c;
+  padding: 12px 18px;
+  border-radius: 20px;
+  color: #e4e6eb;
+  font-size: 14px;
+}
+
+/* INFO PERFIL */
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  padding: 20px 30px;
+  position: relative;
+}
+
+/* FOTO PERFIL */
+
+.profile-img-container {
+  position: relative;
+  margin-top: -80px;
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 5px solid #242526;
+  object-fit: cover;
+}
+
+.profile-btn {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background: #3a3b3c;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.profile-btn i {
+  color: white;
+}
+
+/* TEXTO */
+
+.profile-text {
+  margin-left: 30px;
+  color: white;
+}
+
+.profile-text h1 {
+  font-size: 28px;
+}
+
+.profile-text p {
+  color: #b0b3b8;
+  margin-top: 5px;
+}
+
+
+/* NAV PERFIL */
+
+.profile-nav {
+  background: #242526;
+  border-top: 1px solid #3a3b3c;
+  padding: 0 30px;
+}
+
+.profile-nav ul {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+}
+
+.profile-nav li {
+  padding: 15px 0;
+  cursor: pointer;
+  color: #b0b3b8;
+  font-weight: 500;
+  position: relative;
+  transition: 0.3s;
+}
+
+.profile-nav li:hover {
+  color: white;
+}
+
+.profile-nav li.active {
+  color: #1877f2;
+}
+
+.profile-nav li.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: #1877f2;
+  border-radius: 3px;
+}
+
+/* POSTS CONTENEDOR */
+
+.posts {
+  padding: 20px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* POST */
+
+.post {
+  background: #242526;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+  transition: 0.3s;
+}
+
+.post:hover {
+  transform: translateY(-3px);
+}
+
+/* HEADER */
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  color: white;
+}
+
+.user-img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.post-header span {
+  font-size: 12px;
+  color: #b0b3b8;
+}
+
+/* IMAGEN */
+
+.post-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.post-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  transition: 0.4s ease;
+}
+
+/* OVERLAY */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.stats {
+  color: white;
+  font-size: 20px;
+  display: flex;
+  gap: 30px;
+  font-weight: bold;
+}
+
+/* HOVER EFECTO */
+
+.post-image:hover img {
+  filter: blur(4px);
+  transform: scale(1.05);
+}
+
+.post-image:hover .overlay {
+  opacity: 1;
+}
+
+/* TEXTO */
+
+.post-info {
+  padding: 15px;
+  color: white;
+}
+
+/* BOTONES */
+
+.post-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+  border-top: 1px solid #3a3b3c;
+}
+
+.post-actions button {
+  background: none;
+  border: none;
+  color: #b0b3b8;
+  cursor: pointer;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+
+.post-actions button:hover {
+  background: #3a3b3c;
+  color: white;
+}
+
+/* COMENTARIOS */
+
+.comments {
+  padding: 10px 15px 15px;
+  border-top: 1px solid #3a3b3c;
+}
+
+.comment {
+  font-size: 14px;
+  color: #e4e6eb;
+  margin-bottom: 5px;
+}
+

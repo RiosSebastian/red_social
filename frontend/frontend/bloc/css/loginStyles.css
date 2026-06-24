@@ -1,0 +1,82 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #333;
+    background-image: url("img/fondo.png");
+    background-size: cover;        /* Que cubra toda la pantalla */
+    background-position: center;   /* Centrada */
+    background-repeat: no-repeat;  /* Que no se repita */
+}
+
+.container{
+    margin: 0 15px;
+}
+
+.form-box{
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2{
+    font-size: 34px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input{
+    width: 100%;
+    padding: 12px;
+    background: #eee;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+button{
+    width: 100%;
+    padding: 12px;
+    background: #007BFF;
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 500;
+    margin-bottom: 20px;
+    transition:  0.5s;
+}
+
+button:hover{
+    background: #0056b3;
+}
+
+p{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+p a{
+    color: #007BFF;
+    text-decoration: none;
+}
+
+p a:hover{
+    text-decoration: underline;
+}
